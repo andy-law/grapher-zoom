@@ -1,0 +1,9 @@
+{
+  "name": "grapher-zoom",
+  "repository": "ayasdi/grapher-zoom",
+  "description": "Zoom module for Grapher",
+  "version": "0.0.1",
+  "dependencies": {},
+  "scripts": ["zoom.js"],
+  "license": "Apache 2.0"
+}

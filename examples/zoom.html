@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Transforms with Zoom</title>
+  </head>
+  <body>
+    <style type="text/css">
+      html, body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <canvas id="graph"></canvas>
+    <script type="text/javascript" src="../build/grapher.js"></script>
+    <script type="text/javascript">
+      // Generate some data
+      var network = {nodes: [], links: []},
+          width = window.innerWidth,
+          height = window.innerHeight,
+          numNodes = 10,
+          numLinks = 30,
+          i;
+
+      for (i = 0; i < numNodes; i++) {
+        network.nodes.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: Math.random() * 10 + 5
+        });
+      }
+
+      for (i = 0; i < numLinks; i++) {
+        network.links.push({
+          from: Math.floor(Math.random() * numNodes),
+          to: Math.floor(Math.random() * numNodes),
+        });
+      }
+
+      // Create a grapher instance (width, height, options)
+      // The options are the same as PIXI's renderer options.
+      var grapher = new Grapher({
+        canvas: document.getElementById('graph'),
+        width: width,
+        height: height
+      });
+
+      // Give it the network data
+      grapher.data(network);
+
+      // Render the graph
+      grapher.render();
+
+      // Setup transforms with the mousewheel event
+      window.onmousewheel = function (e) {
+        var center = {x: e.offsetX, y: e.offsetY};
+        var delta = e.wheelDelta / 5000;
+
+        // Call zoom with the ratio and center.
+        grapher.zoom(1 + delta, center);
+
+        // Render the graph
+        grapher.render();
+      };
+    </script>
+  </body>
+</html>
