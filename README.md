@@ -22,7 +22,8 @@ Import zoom.js after the main grapher script.
     <script src="grapher.js"></script>
     <script src="zoom.js"></script>
 
-You can build grapher-zoom using [Duo](http://duojs.org/):
+You can build Grapher with grapher-zoom using [Duo](http://duojs.org/) and
+providing Grapher as the argument:
 
     var Grapher = require('ayasdi/grapher');
-    require('ayasdi/grapher-zoom');
+    require('ayasdi/grapher-zoom')(Grapher);
