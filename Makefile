@@ -1,7 +1,10 @@
-all: zoom-min.js
+all: min.js grapher.js
 
-zoom-min.js:
+min.js:
 	@npm run zoom-min.js
+
+grapher.js:
+	@npm run grapher.js
 
 test:
 	@npm run test
