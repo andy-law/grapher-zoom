@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Transforms with Zoom</title>
+    <meta charset="utf-8">
   </head>
   <body>
     <style type="text/css">
@@ -58,15 +59,22 @@
       grapher.render();
 
       // Setup transforms with the mousewheel event
-      window.onmousewheel = function (e) {
-        var center = {x: e.offsetX, y: e.offsetY};
-        var delta = e.wheelDelta / 5000;
+      grapher.on('wheel', function (e) {
+        var center = getOffset(e);
+        var delta = e.deltaY / 5000;
 
         // Call zoom with the ratio and center.
         grapher.zoom(1 + delta, center);
-
         // Render the graph
         grapher.render();
+      });
+
+      function getOffset (e) {
+        if (e.offsetX) return {x: e.offsetX, y: e.offsetY};
+        var rect = e.target.getBoundingClientRect();
+        var x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+        return {x: x, y: y};
       };
     </script>
   </body>
