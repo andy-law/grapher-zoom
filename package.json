@@ -1,9 +1,11 @@
 {
   "name": "grapher-zoom",
+  "main": "./zoom.js",
   "repository": "ayasdi/grapher-zoom",
   "description": "Zoom module for Grapher",
   "version": "0.0.1",
   "license": "Apache 2.0",
+  "main": ,
   "scripts": {
     "grapher.js": "duo build/build.js > build/grapher.js",
     "zoom-min.js": "uglifyjs zoom.js -o zoom-min.js"
