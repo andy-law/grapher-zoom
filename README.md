@@ -3,6 +3,8 @@ Grapher.zoom
 
 Zoom module for [Grapher](https://github.com/ayasdi/grapher).
 
+This is a fork of Ayasdi's [zoom module](https://github.com/ayasdi/grapher-zoom) for [Grapher](https://github.com/ayasdi/grapher)
+
 Files
 -----
 
